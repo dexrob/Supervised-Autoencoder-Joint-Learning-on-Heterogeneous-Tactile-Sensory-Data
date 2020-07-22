@@ -80,7 +80,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../../new_data_folder/'
+data_dir = '../data/'
 logDir = 'models_and_stats/'
 if_plot = False
 

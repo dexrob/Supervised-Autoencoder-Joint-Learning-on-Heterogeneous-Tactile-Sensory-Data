@@ -50,7 +50,7 @@ hidden_layer_depth = 1
 latent_length = 40
 batch_size = 32
 learning_rate = 0.0005
-n_epochs = 2000
+n_epochs = 2
 
 dropout_rate = 0.2
 cuda = True # options: True, False
@@ -68,7 +68,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../../new_data_folder/'
+data_dir = '../data/'
 logDir = 'models_and_stats/'
 if_plot = False
 if_swap_test = True
