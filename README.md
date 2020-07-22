@@ -21,3 +21,4 @@ pip install -r requirements.txt
 * `code` contains all the code used to run the experiments and analyze the results.
 * `data` contains the BioTac data collected during our experiments.
 * `docs` contains supplementary informationn.
+* `models_and_stats` is an empty folder to contained trained models and saved statistics
