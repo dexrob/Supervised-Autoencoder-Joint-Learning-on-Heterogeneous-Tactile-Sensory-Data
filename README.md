@@ -10,8 +10,7 @@ To run the code, you will need:
 * pytorch v1.4.0
 * torchvision (0.5.0)
 * sklearn (0.22.1)
-* matplotlib (3.1.2) 
-<br/>
+* matplotlib (3.1.2)  <br/>
 You can use the following command to install required packages in a seperate virtual environment.
 ```
 conda create -n AE python=3.8.3
