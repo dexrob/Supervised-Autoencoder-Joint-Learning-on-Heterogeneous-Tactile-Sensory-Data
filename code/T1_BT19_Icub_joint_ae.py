@@ -50,7 +50,7 @@ hidden_layer_depth = 1
 latent_length = 40
 batch_size = 32
 learning_rate = 0.0005
-n_epochs = 2
+n_epochs = 2000
 
 dropout_rate = 0.2
 cuda = True # options: True, False
