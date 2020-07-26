@@ -2,7 +2,7 @@
 # coding: utf-8
 
 '''
-sample command: python T4_BT19_ae.py -k 0 -c 0 -r 1
+sample command: python T4_BT19_ae.py -k 0 -c 0 -r 1 --data_dir /home/ruihan/data
 Individual training for BioTac data (full/partial data)
 if -r=1, train with full data
 if -r=2, train with half data
@@ -27,6 +27,7 @@ from vrae.tas_utils_bs import get_trainValLoader, get_testLoader
 
 # Parse argument
 parser = argparse.ArgumentParser()
+parser.add_argument('--data_dir', type=str, required=True, help="DIR set in 'gh_download.sh' to store compiled_data")
 parser.add_argument("-k", "--kfold", type=int, default=0, help="kfold_number for loading data")
 parser.add_argument("-r", "--reduction", type=int, default=1, help="data reduction ratio for partial training")
 parser.add_argument("-c", "--cuda", default=0, help="index of cuda gpu to use")
@@ -41,6 +42,7 @@ args = parser.parse_args()
 # args=Args()
 
 # Set hyper params
+args_data_dir = args.data_dir
 kfold_number = args.kfold
 data_reduction_ratio = args.reduction
 shuffle = False # set to False for partial training
@@ -66,7 +68,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../data/'
+data_dir = os.path.join(args_data_dir, "compiled_data/")
 logDir = 'models_and_stats/'
 if_plot = False
 

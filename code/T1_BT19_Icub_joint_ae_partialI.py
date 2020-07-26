@@ -39,6 +39,7 @@ args = parser.parse_args()
 # args=Args()
 
 # Set hyper params
+args_data_dir = args.data_dir
 kfold_number = args.kfold
 data_reduction_ratio = args.reduction
 shuffle = False # set to False for partial training
@@ -74,7 +75,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../data/'
+data_dir = os.path.join(args_data_dir, "compiled_data/")
 logDir = 'models_and_stats/'
 if_plot = False
 

@@ -2,7 +2,7 @@
 # coding: utf-8
 
 '''
-sample command: python T5_half_spv_trainI.py -k 0 -c 0
+sample command: python T5_half_spv_trainI.py -k 0 -c 0 --data_dir /home/ruihan/data
 Two-stage training
 Train the autoencoder + classifier for one sensor, or otherwise load pre-trained model from individual training (I),
     then align the latent space of the other (B) to the known latent space,
@@ -32,6 +32,7 @@ from vrae.tas_utils_bs import get_trainValLoader, get_testLoader
 
 # Parse argument
 parser = argparse.ArgumentParser()
+parser.add_argument('--data_dir', type=str, required=True, help="DIR set in 'gh_download.sh' to store compiled_data")
 parser.add_argument("-k", "--kfold", type=int, default=0, help="kfold_number for loading data")
 parser.add_argument("-c", "--cuda", default=0, help="index of cuda gpu to use")
 args = parser.parse_args()
@@ -44,6 +45,7 @@ args = parser.parse_args()
 # args=Args()
 
 # Set hyper params
+args_data_dir = args.data_dir
 kfold_number = args.kfold
 data_reduction_ratio = args.reduction
 shuffle = True
@@ -80,7 +82,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../data/'
+data_dir = os.path.join(args_data_dir, "compiled_data/")
 logDir = 'models_and_stats/'
 if_plot = False
 

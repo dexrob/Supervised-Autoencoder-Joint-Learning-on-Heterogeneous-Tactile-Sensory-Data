@@ -1,3 +1,4 @@
+''' Code is modified based on https://github.com/tejaslodaya/timeseries-clustering-vae'''
 import numpy as np
 import torch
 from torch import nn, optim

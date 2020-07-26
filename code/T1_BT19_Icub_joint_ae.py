@@ -2,7 +2,7 @@
 # coding: utf-8
 
 '''
-sample command: python T1_BT19_Icub_joint_ae.py -k 0 -c 0
+sample command: python T1_BT19_Icub_joint_ae.py -k 0 -c 0 --data_dir /home/ruihan/data
 Joint training (full data)
 loss = classification loss + recon loss + mse loss
 '''
@@ -25,6 +25,7 @@ from vrae.tas_utils_bs import get_trainValLoader, get_testLoader
 
 # Parse argument
 parser = argparse.ArgumentParser()
+parser.add_argument('--data_dir', type=str, required=True, help="DIR set in 'gh_download.sh' to store compiled_data")
 parser.add_argument("-k", "--kfold", type=int, default=0, help="kfold_number for loading data")
 parser.add_argument("-c", "--cuda", default=0, help="index of cuda gpu to use")
 args = parser.parse_args()
@@ -37,6 +38,7 @@ args = parser.parse_args()
 # args=Args()
 
 # Set hyper params
+args_data_dir = args.data_dir
 kfold_number = args.kfold
 shuffle = False
 num_class = 20
@@ -68,7 +70,7 @@ np.random.seed(1)
 torch.manual_seed(1)
 
 # Load data
-data_dir = '../data/'
+data_dir = os.path.join(args_data_dir, "compiled_data/")
 logDir = 'models_and_stats/'
 if_plot = False
 if_swap_test = True
