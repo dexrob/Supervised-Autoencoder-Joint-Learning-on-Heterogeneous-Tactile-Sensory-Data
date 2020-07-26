@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Datasets
 In this experiment, we use data of two tactile sensors, iCub and BioTac. <br/>
-`gh_download.sh` contains terminal commands to download the preprocessed data from a separate git repo [BioTac_slide_20_50](https://github.com/dexrob/BioTac_slide_20_50)
+`gh_download.sh` contains terminal commands to download the preprocessed data from a separate git repo [BioTac_slide_20_50](https://github.com/dexrob/BioTac_slide_20_50) <br/>
 usage: open `gh_download`, change DIR to a preferred location, then run
 ```
 chmod 755 gh_download.sh 
