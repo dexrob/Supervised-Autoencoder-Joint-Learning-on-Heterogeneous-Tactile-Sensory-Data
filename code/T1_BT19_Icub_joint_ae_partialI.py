@@ -25,6 +25,7 @@ from vrae.tas_utils_bs import get_trainValLoader, get_testLoader
 
 # Parse argument
 parser = argparse.ArgumentParser()
+parser.add_argument('--data_dir', type=str, required=True, help="DIR set in 'gh_download.sh' to store compiled_data")
 parser.add_argument("-k", "--kfold", type=int, default=0, help="kfold_number for loading data")
 parser.add_argument("-r", "--reduction", type=int, default=1, help="data reduction ratio for partial training")
 parser.add_argument("-c", "--cuda", default=0, help="index of cuda gpu to use")

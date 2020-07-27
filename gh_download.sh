@@ -4,7 +4,7 @@ echo "Download compiled data from git repo!"
 # URL=https://github.com/dexrob/BioTac_slide_20_50/tree/master/compiled_data
 URL=https://github.com/dexrob/BioTac_slide_20_50
 
-DIR=/home/ruihan/data
+DIR=/home/tasbolat/IROS2020_data_ae
 mkdir $DIR
 
 cd $DIR
