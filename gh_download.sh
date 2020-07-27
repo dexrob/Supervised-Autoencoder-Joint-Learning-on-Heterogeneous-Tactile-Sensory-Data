@@ -4,7 +4,7 @@ echo "Download compiled data from git repo!"
 # URL=https://github.com/dexrob/BioTac_slide_20_50/tree/master/compiled_data
 URL=https://github.com/dexrob/BioTac_slide_20_50
 
-DIR=/home/tasbolat/IROS2020_data_ae
+DIR=/Users/ruihan/Documents/IROS2020/Supervised-Autoencoder-Joint-Learning-on-Heterogeneous-Tactile-Sensory-Data/data
 mkdir $DIR
 
 cd $DIR

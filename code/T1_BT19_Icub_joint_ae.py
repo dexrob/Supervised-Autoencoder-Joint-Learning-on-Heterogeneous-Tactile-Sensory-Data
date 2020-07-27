@@ -25,6 +25,7 @@ from vrae.tas_utils_bs import get_trainValLoader, get_testLoader
 
 # Parse argument
 parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--rep", type=int, default=0, help='index of running repetition')
 parser.add_argument('--data_dir', type=str, required=True, help="DIR set in 'gh_download.sh' to store compiled_data")
 parser.add_argument("-k", "--kfold", type=int, default=0, help="kfold_number for loading data")
 parser.add_argument("-c", "--cuda", default=0, help="index of cuda gpu to use")
@@ -73,7 +74,7 @@ torch.manual_seed(1)
 data_dir = os.path.join(args_data_dir, "compiled_data/")
 logDir = 'models_and_stats/'
 if_plot = False
-if_swap_test = True
+if_swap_test = False
 
 # new model
 # model_name_B = 'BT19_joint_ae_wrB_{}_wcB_{}_wrI_{}_wcI_{}_wC_{}_{}'.format(w_rB,w_cB, w_rI, w_cI, w_mse, str(kfold_number))
@@ -383,7 +384,7 @@ results_dict = {"epoch_train_loss_B": epoch_train_loss_B,
                 "epoch_val_acc_B": epoch_val_acc_B,
                 "epoch_val_acc_I": epoch_val_acc_I,
                 "test_acc": [test_acc_B, test_acc_I]}
-dict_name = "BT19Icub_joint_ae_fold{}.pkl".format(str(kfold_number))
+dict_name = "BT19Icub_joint_ae_fold{}_{}.pkl".format(str(kfold_number),args.rep)
 pickle.dump(results_dict, open(logDir + dict_name, 'wb'))
 print("dump results dict to {}".format(dict_name))
 
