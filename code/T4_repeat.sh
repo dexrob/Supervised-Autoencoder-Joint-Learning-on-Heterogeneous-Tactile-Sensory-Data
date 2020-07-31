@@ -5,7 +5,7 @@ echo "remember to check model name and dict_name in python script"
 for i in {1..10}
 do
 #    python test.py -i $i
-   python T4_BT19_ae.py -k 0 -c 0 -r 1 --data_dir /home/ruihan/data -i $i
+   python T4_BT19_ae.py -k 0 -c 0 -r 1 --data_dir /home/tasbolat/IROS2020_data_ae -i $i
 done
 
 echo "check multiple results"
