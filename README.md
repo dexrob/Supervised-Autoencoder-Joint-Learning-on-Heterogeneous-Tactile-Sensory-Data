@@ -28,16 +28,4 @@ More examples and explanations for parameters are given at the beginning of indi
     * `models_and_stats` is an empty folder to contained trained models and saved statistics
 * `docs` contains supplementary information (empty for now).
 
-## To Tas
-To run the experiments T1_BT19_Icub_joint_ae.py (T1), T2_IcubCNN_ae.py (T2), and T4_BT19_ae.py (T4) multiple times, do the following: <br/>
-(take T1 as an example)
-
-* In T1 Line387, I have changed the dict_name to include a repetition index (pls help check for other experiments)
-* Open T1_repeat.sh, change data_dir in Line8
-* Open check_multiple_results.py, check log_dir, change base_name and csv_name for each experiment
-* In a terminal, run 
-```
-chmod +x T1_repeat.sh
-./T1_repeat.sh
-```
-(please comment out some output for model training in the python script if u want)
+Hope you find it helpful and please feel free to raise issues and questions. We are always happy to help and learn from each other! (^ω^)
