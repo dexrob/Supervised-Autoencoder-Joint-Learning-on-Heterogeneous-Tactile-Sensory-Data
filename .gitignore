@@ -1,2 +1,3 @@
-/code/stats_and_models/*
+/code/models_and_stats/*
+/code/vrae/__pycache__/*
 data/*
