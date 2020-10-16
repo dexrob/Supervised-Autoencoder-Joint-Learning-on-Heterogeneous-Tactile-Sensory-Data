@@ -220,11 +220,6 @@ class Decoder(nn.Module):
         nn.init.xavier_uniform_(self.hidden_to_output.weight)
         self.lstm = nn.LSTM(self.hidden_size, self.hidden_size, self.hidden_layer_depth, batch_first=True)
 
-#         # used for deprecated implementation of decoder  
-#         self.lstm = nn.LSTM(1, self.hidden_size, self.hidden_layer_depth)
-#         self.decoder_inputs = torch.zeros(self.sequence_length, self.batch_size, 1, requires_grad=True).to(self.device)
-#         self.c_0 = torch.zeros(self.hidden_layer_depth, self.batch_size, self.hidden_size, requires_grad=True).to(self.device)
-
 
 
     def forward(self, latent):
@@ -235,13 +230,7 @@ class Decoder(nn.Module):
         :return: output consisting of mean vector
 
         """
-#         # deprecated implementation of decoder
-#         h_state = self.latent_to_hidden(latent)
-#         c_0 = torch.zeros(self.hidden_layer_depth, h_state.size(0), self.hidden_size, requires_grad=True).to(self.device)
-#         h_0 = torch.stack([h_state for _ in range(self.hidden_layer_depth)]).to(self.device)
-#         decoder_output, _ = self.lstm(self.decoder_inputs, (h_0, c_0))
 
-        
         # update the implementation of decoder in Oct 2020
         latent_input = self.latent_to_hidden(latent)
         decoder_input = latent_input.repeat(self.sequence_length, 1, 1).transpose_(0, 1) # [8, 400, 90]
@@ -301,11 +290,6 @@ class CnnDecoder(nn.Module):
         nn.init.xavier_uniform_(self.hidden_to_output.weight)
         
         self.lstm = nn.LSTM(self.hidden_size, self.hidden_size, self.hidden_layer_depth, batch_first=True)
-        
-#         # deprecated implementation of Cnndecoder
-#         self.lstm = nn.LSTM(1, self.hidden_size, self.hidden_layer_depth)
-#         self.decoder_inputs = torch.zeros(self.sequence_length, self.batch_size, 1, requires_grad=True).to(self.device)
-#         self.c_0 = torch.zeros(self.hidden_layer_depth, self.batch_size, self.hidden_size, requires_grad=True).to(self.device)
 
 
 
@@ -318,11 +302,6 @@ class CnnDecoder(nn.Module):
         :return: output consisting of mean vector
 
         """
-#         # deprecated implementation of Cnndecoder
-#         h_state = self.latent_to_hidden(latent)
-#         c_0 = torch.zeros(self.hidden_layer_depth, h_state.size(0), self.hidden_size, requires_grad=True).to(self.device)
-#         h_0 = torch.stack([h_state for _ in range(self.hidden_layer_depth)])
-#         decoder_output, _ = self.lstm(self.decoder_inputs, (h_0, c_0))
 
         latent_input = self.latent_to_hidden(latent)
         decoder_input = latent_input.repeat(self.sequence_length, 1, 1).transpose_(0, 1) # [8, 400, 90]
