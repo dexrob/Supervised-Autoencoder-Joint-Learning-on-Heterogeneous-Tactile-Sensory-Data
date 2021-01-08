@@ -2,7 +2,7 @@
 # coding: utf-8
 
 '''
-sample command: python T4_BT19_ae.py -k 0 -c 0 -r 1 --data_dir /home/ruihan/data
+sample command: python T4_BT19_ae.py -k 0 -c 0 -r 1 --data_dir ../data
 Individual training for BioTac data (full/partial data)
 if -r=1, train with full data
 if -r=2, train with half data
